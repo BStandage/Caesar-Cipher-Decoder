@@ -41,9 +41,13 @@ def decode_message(message):
     decoded_words = []
     keys = []
 
+
+    
     for w in words:
         keys.append(decode(w))
-        decoded_words.append(decode_key(w, 19))
+
+    for w in words:
+        decoded_words.append(decode_key(w, max(set(keys), key=keys.count)))
 
     print(words)
     print(decoded_words)
